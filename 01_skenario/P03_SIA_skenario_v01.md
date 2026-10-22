@@ -32,18 +32,25 @@ Batas dan asumsi:
 |--------------|---------------------------------------------------------------------|
 |  Mahasiswa   |Melihat jadwal kuliah, mengajukan KRS, dan mengunduh bukti pengajuan |
 |Admin_akademik|                       Mengelola jadwal kuliah                       |
-|    Sistem    |                           Memvalidasi KRS                           |
 |  Dosen_wali  |                      memproses persetujuan KRS                      |
 
 
 <!-- tabel susunan katalog use case -->
-ID                              Nama_user_case                                  Peran_dalam_model
-SIA-R01                         Lihat jadwal kuliah                             Fungsi utama mahasiswa
-SIA-R02                         Kelola jadwal kuliah                            Fungsi utama Admin_akademik
-SIA-R03                         Ajukan KRS                                      Fungsi utama mahasiswa
-SIA-R04                         Validasi KRS                                    Fungsi utama sistem
-SIA-R05                         Unduh bukti pengajuan                           Tambahan bersyarat pada UC03
-SIA-R06                         
-<!-- relasi include -->
+|  ID   |    Nama_use_case     |      Peran_dalam_model       |
+|-------|----------------------|------------------------------|
+|SIA-R01|  Lihatjadwalkuliah   |    Fungsi utama mahasiswa    |
+|SIA-R02|  Kelolajadwalkuliah  | Fungsi utama Admin akademik  |
+|SIA-R03|      AjukanKRS       |    Fungsi utama mahasiswa    |
+|SIA-R04|     ValidasiKRS      |Perilaku yang disertakan UC03 |
+|SIA-R05|UnduhbuktipengajuanKRS| Tambahan bersyarat pada UC03 |
+|SIA-R06|  ProsesKeputusanKRS  |   Fungsi utama Dosen wali    |
 
+
+<!-- relasi include -->
+SIA-R03 «include» SIA-R04
+Alasan: Validasi KRS merupakan bagian wajib dari proses pengajuan KRS.
 <!-- relasi extend -->
+SIA-R05 «extend» SIA-R03
+ Extension point: Bukti pengajuan tersedia.
+ Kondisi: [mahasiswa memilih unduh bukti]
+ Alasan: Mahasiswa dapat memilih mengunduh bukti setelah pengajuan KRS berhasil disimpan. Pengajuan tetap berhasil meskipun bukti tidak diunduh.
