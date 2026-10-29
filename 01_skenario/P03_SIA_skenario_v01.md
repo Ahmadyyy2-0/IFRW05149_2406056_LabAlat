@@ -54,3 +54,5 @@ SIA-R05 «extend» SIA-R03
  Extension point: Bukti pengajuan tersedia.
  Kondisi: [mahasiswa memilih unduh bukti]
  Alasan: Mahasiswa dapat memilih mengunduh bukti setelah pengajuan KRS berhasil disimpan. Pengajuan tetap berhasil meskipun bukti tidak diunduh.
+
+
